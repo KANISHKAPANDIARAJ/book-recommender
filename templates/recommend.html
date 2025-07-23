@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block title %}Recommendations{% endblock %}
+
+{% block content %}
+<h1 class="mb-4 text-primary">Recommended Books</h1>
+{% if recommendations and recommendations|length > 0 %}
+  <div class="row row-cols-1 row-cols-md-2 g-4">
+    {% for rec in recommendations %}
+    <div class="col">
+      <div class="card h-100 shadow-sm">
+        <div class="card-body">
+          <h5 class="card-title">{{ rec.title }}</h5>
+          <h6 class="card-subtitle mb-2 text-muted">{{ rec.authors }}</h6>
+          <p class="card-text">{{ rec.description or 'No description available.' }}</p>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+{% else %}
+  <p class="lead">No recommendations found. Please try another title.</p>
+{% endif %}
+<a href="/" class="btn btn-secondary mt-4">Back to Home</a>
+{% endblock %}

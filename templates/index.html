@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block title %}Home - Book Recommender{% endblock %}
+
+{% block content %}
+<h1 class="mb-4 text-primary">Discover your next favorite book</h1>
+
+<!-- Search by book title -->
+<form action="/recommend" method="post" class="row g-3 mb-4">
+  <div class="col-md-8">
+    <input type="text" name="book_title" class="form-control form-control-lg" placeholder="Enter a book title you like" required>
+  </div>
+  <div class="col-md-4 d-grid">
+    <button type="submit" class="btn btn-primary btn-lg">Recommend</button>
+  </div>
+</form>
+
+<!-- Search by genre -->
+<form action="/genre" method="post" class="row g-3 mb-5">
+  <div class="col-md-8">
+    <input type="text" name="genre" class="form-control form-control-lg" placeholder="Or enter a genre (e.g. Fantasy, Romance)" required>
+  </div>
+  <div class="col-md-4 d-grid">
+    <button type="submit" class="btn btn-outline-primary btn-lg">Find by Genre</button>
+  </div>
+</form>
+
+<h2 class="mb-3">Featured Books</h2>
+<div class="row row-cols-1 row-cols-md-3 g-4">
+  {% for book in books %}
+  <div class="col">
+    <div class="card h-100 shadow-sm">
+      <div class="card-body">
+        <h5 class="card-title">{{ book.title }}</h5>
+        <h6 class="card-subtitle mb-2 text-muted">{{ book.authors }}</h6>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{% endblock %}

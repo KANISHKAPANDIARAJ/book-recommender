@@ -1,0 +1,29 @@
+:root {
+  --bs-primary: #8e44ad;
+}
+
+body {
+  background-color: #5b2c6f;
+}
+
+h1, h2 {
+  color: #8e44ad;
+}
+
+.navbar, .btn-primary, .bg-primary {
+  background-color: #8e44ad !important;
+  border-color: #8e44ad !important;
+}
+
+.btn-primary, .btn-outline-primary {
+  background-color: #8e44ad !important;
+  color: #fff !important;
+  border-color: #8e44ad !important;
+}
+.btn-primary:hover, .btn-outline-primary:hover {
+  background-color: #5e3370 !important;
+  border-color: #5e3370 !important;
+}
+.mb-4.text-primary {
+  color: #8e44ad !important;
+}

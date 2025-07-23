@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %}Books for Genre: {{ genre|title }}{% endblock %}
+
+{% block content %}
+<h1 class="mb-4 text-primary">Books in Genre: {{ genre|title }}</h1>
+{% if books %}
+  <div class="row row-cols-1 row-cols-md-2 g-4">
+    {% for book in books %}
+    <div class="col">
+      <div class="card h-100 shadow-sm">
+        <div class="card-body">
+          <h5 class="card-title">{{ book.title }}</h5>
+          <h6 class="card-subtitle mb-2 text-muted">{{ book.authors }}</h6>
+          <p class="card-text">{{ book.description or 'No plotline available.' }}</p>
+          <small class="text-muted">Genres: {{ book.genres }}</small>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+{% else %}
+  <p class="lead">No books found for this genre.</p>
+{% endif %}
+<a href="/" class="btn btn-secondary mt-4">Back to Home</a>
+{% endblock %}
